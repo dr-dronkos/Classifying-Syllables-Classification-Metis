@@ -27,7 +27,9 @@ The model with the best accuracy (0.91) was the Ensemble model. This Stacking mo
 
 ## References
 Boersma, Paul & Weenink, David (2022). Praat: doing phonetics by computer [Computer program]. Version 6.2.12, retrieved 28 March 2022 from http://www.praat.org/
+
 Ronkos, D. A. (2020). The Sounds of Sikles Gurung: A Phonetic and Phonological Description of a Tibeto-Burman Language of Nepal. Doctoral Dissertation, The Graduate Center, CUNY.
+
 Stanley, J. & Lipani, L. (2019). Automatic Formant Extraction in Praat. Accessed 28 March 2022 from https://joeystanley.com/downloads/191002-formant_extraction
   
 ## Communication
