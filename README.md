@@ -17,9 +17,19 @@ Although I did not realize it at the time, the choices I made in encoding the co
 
 I did attempt additional feature engineering on the acoustic vowel measurements. Linguists commonly think of formants as ways of plotting vowels in the vowel space, but I also thought it might be useful to look at the distance between formants (i.e. one thing that distinguishes the front vowel /i/ from the back vowel /u/ is the distance between the first and second formants; it should be much greater for the front vowel than for the back vowel). This did not turn out to be useful feature engineering, and actually decreased the accuracy for KNN and Logistic Regression models trained on these features instead of the raw measurements.
 
-The model with the best accuracy (0.91) was the Ensemble model. This Stacking model combined KNN, Decision Tree, and Logistic Regression models, with the Logistic Regression model serving as the meta model determining the best parameters. This combination actually makes sense based on my understanding of the features encoding each syllable. I would expect a KNN model to perform very well on the vowel formant data, since a KNN model actually mirrors the way linguists think human speech perception works -- each new vowel is recognized by the listener based on how closely it resembles the vowel categories the learner has formed based on previous input. I would expect a Decision Tree model to perform well on the categorical consonant features -- it would be very easy to partition the data 
+The model with the best accuracy (0.91) was the Ensemble model. This Stacking model combined KNN, Decision Tree, and Logistic Regression models, with the Logistic Regression model serving as the meta model determining the best parameters. This combination actually makes sense based on my understanding of the features encoding each syllable. I would expect a KNN model to perform very well on the vowel formant data, since a KNN model actually mirrors the way linguists think human speech perception works -- each new vowel is recognized by the listener based on how closely it resembles the vowel categories the learner has formed based on previous input. I would expect a Decision Tree model to perform well on the categorical consonant features -- it would be very easy to partition the data based on coda consonant distribution (Nepali seems to hae more coda consonants) or onset consonant distribution (Gurung seems to have more onset consonants that are sonorants). And I would expect a Logistic Regression model to perform well on vowel duration data, since although the two languages have similar vowel systems, Gurung has additional short vowels Nepali lacks that should cluster at the lower end of the distribution.
+  
+## Tools
+  - Praat to annotate and extract acoustic data
+  - Excel to annotate categorical data
+  - Python and Pandas to merge and clean categorical and acoustic data, as well as perform EDA
+  - Scikit Learn to train various classification models and plot confusion matrices
 
 ## References
 Boersma, Paul & Weenink, David (2022). Praat: doing phonetics by computer [Computer program]. Version 6.2.12, retrieved 28 March 2022 from http://www.praat.org/
 Ronkos, D. A. (2020). The Sounds of Sikles Gurung: A Phonetic and Phonological Description of a Tibeto-Burman Language of Nepal. Doctoral Dissertation, The Graduate Center, CUNY.
 Stanley, J. & Lipani, L. (2019). Automatic Formant Extraction in Praat. Accessed 28 March 2022 from https://joeystanley.com/downloads/191002-formant_extraction
+  
+## Communication
+  [Classification_slides.pdf](https://github.com/dr-dronkos/Classifying-Syllables-Classification-Metis/files/8518107/Classification_slides.pdf)
+
